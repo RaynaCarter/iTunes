@@ -20,7 +20,13 @@ function myCallback(myData) {
     console.log(myData);
 
     for(var i = 0; i < numOfRe; i++){
-        document.getElementById("songs").innerHTML += "<br>" + myData.results[i].trackName ;
+        document.getElementById("songs").innerHTML += "<tr>"+"<br>" + "Artist Name: "+ myData.results[i].artistName+ "<br>" + "</tr>";
+        document.getElementById("songs").innerHTML += "<tr>"+"<br>" + "Track Name: "+ myData.results[i].trackName+ "<br>" + "</tr>";
+        document.getElementById("songs").innerHTML += "<tr>"+"<br>" + " Album: "+ myData.results[i].collectionName+ "<br>" + "</tr>";
+        document.getElementById("songs").innerHTML += "<td>"+"<br>" + "<img src = " + myData.results[i].artworkUrl100
+            +">"+"<br>" + "</td>";
+
+
     }
 
 }
