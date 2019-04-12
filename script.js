@@ -44,6 +44,7 @@ function myCallback(myData) {
 
 }
 
+
 function moreInfo(myData){
     console.log(myData);
     var numOfRe = document.getElementById('numberOfResults').value;
