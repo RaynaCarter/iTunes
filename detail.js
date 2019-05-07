@@ -9,7 +9,7 @@ console.log(getQueryParameter("song"));
 console.log(getQueryParameter("artist"));*/
 
 
-function start(){
+function start2(){
 
     //var enterName = document.getElementById('enterName').value;
     //var numOfRe = document.getElementById('numberOfResults').value;
@@ -49,16 +49,31 @@ function date () {
 
 function moreInfo(myData){
     console.log(myData);
-    var numOfRe = document.getElementById('numberOfResults').value;
+   //. var numOfRe = document.getElementById('numberOfResults').value;
     //var d = new Date('2015-03-04T00:00:00.000Z')
     var info = "";
     var i = getQueryParameter("song");
+
+    //var millis = myData.results[i].trackTimeMillis;
+    //var minutes = Math.floor(millis / 60000);
+    //var seconds = ((millis % 60000) / 1000).toFixed(0);
+
         var d = new Date(myData.results[i].releaseDate);
-        info += "<tr></tr><td><br>Release Date: " + d.getUTCMonth()+ d.getUTCDay()+ d.getUTCFullYear() + "<br></td>";
-        info += "<td>" + "<br>" + "Track Duration: " + (myData.results[i].trackTimeMillis) / 60000
+        var url = myData.results[i].collectionViewUrl;
+
+
+    info += "<tr></tr><td><br><a href='" + url + "' target='_blank'>" + "Apple Music page of "+ myData.results[i].trackName+ "</a></p><br></td>";
+
+
+
+
+        info += "<td><br>Release Date: " + d.getUTCMonth()+"-"+ d.getUTCDay()+"-"+ d.getUTCFullYear() + "<br></td>";
+        info += "<td>" + "<br>" + "Track Duration: " + Math.round(myData.results[i].trackTimeMillis/60000)+ " minutes"
             + "<br>" + "</td>";
         info += "<td>" + "<br>" + " Explicitness: " + myData.results[i].trackExplicitness
             + "<br>" + "</td>"+"</tr>";
+
+
 
     document.getElementById("info").innerHTML = info;
 }
