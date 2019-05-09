@@ -2,16 +2,23 @@
 function start(){
 
     var enterName = document.getElementById('enterName').value;
-    //var numOfRe = document.getElementById('numberOfResults').value;
 
-    $.ajax({
-        url: 'https://itunes.apple.com/search?term=' + enterName,
-        type: 'GET',
-        crossDomain: true,
-        dataType: 'jsonp',
-        success: myCallback,
-        //error: failed,
-    });
+    if(enterName==""){
+        document.getElementById("songs").innerHTML = " In order for this to work you kind of have to enter a name first :/ " ;
+    }else{
+        $.ajax({
+
+            url: 'https://itunes.apple.com/search?term=' + enterName,
+            type: 'GET',
+            crossDomain: true,
+            dataType: 'jsonp',
+            success: myCallback,
+            error: failed,
+        });
+
+    }
+
+
 
 }
 
@@ -20,10 +27,13 @@ function myCallback(myData) {
     console.log(myData);
     var tableInfo = "";
 
-    if(myData==0){
-        document.getElementById("songs").innerHTML = " No results found" ;
-    }else{
+   // if(resultCount.length==0){
+     //   document.getElementById("songs").innerHTML = " No results found" ;
+   // }else{
         for(var i = 0; i < numOfRe; i++){
+            if(myData.resultCount==0){
+                document.getElementById("songs").innerHTML = " No results found" ;
+            }
             var rank = i+1;
             tableInfo += "<tr>"+"<td>"+"<br>"+ rank + "<br></td>";
             tableInfo  += "<td>"+"<br>" + "<img src = " + myData.results[i].artworkUrl100
@@ -39,26 +49,9 @@ function myCallback(myData) {
 
         document.getElementById("songs").innerHTML = tableInfo;
 
-    }
+    //}
 
 
-}
-
-
-function moreInfo(myData){
-    console.log(myData);
-    var numOfRe = document.getElementById('numberOfResults').value;
-
-    var info = "";
-
-    for(var i = 0; i < numOfRe; i++) {
-        info += "<td><br>Release Date: " + myData.results[i].releaseDate + "<br></td>";
-        info += "<td>" + "<br>" + "Track Duration: " + (myData.results[i].trackTimeMillis) / 60000
-            + "<br>" + "</td>";
-        info += "<td>" + "<br>" + " Explicitness: " + myData.results[i].trackExplicitness
-            + "<br>" + "</td>";
-    }
-    document.getElementById("songs").innerHTML = info;
 }
 
 function failed(){
