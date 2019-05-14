@@ -40,19 +40,11 @@ function moreInfo(myData){
 
 
     info += "<tr></tr><td><br><a href='" + url + "' target='_blank'>" + "Apple Music page of "+ myData.results[i].collectionName+ "</a></p><br></td>";
-
+    info += "<td>" + "<br>" + "<button onload= 'start()' onclick=\"goBack()\">Go Back</button>"
+        + "<br>" + "</td>";
         info += "<td><br>Release Date: " + d.getUTCMonth()+"-"+ d.getUTCDay()+"-"+ d.getUTCFullYear() + "<br></td>";
         info += "<td>" + "<br>" + "Track Duration: " + Math.round(myData.results[i].trackTimeMillis/60000)+ " minutes"
             + "<br>" + "</td>";
-
-
-    info += "<td>" + "<br>" + "<button onload= 'start()' onclick=\"goBack()\">Go Back</button>"
-        + "<br>" + "</td>";
-
-
-
-
-
         info += "<td>" + "<br>" + " Explicitness: " + myData.results[i].trackExplicitness
             + "<br>" + "</td>"+"</tr>";
 

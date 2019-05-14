@@ -39,7 +39,7 @@ function myCallback(myData) {
             tableInfo  += "<td>"+"<br>" + "<img src = " + myData.results[i].artworkUrl100
                 +">"+"<br>" + "</td>";
             tableInfo += "<td>\n" +
-                "<a href=\"detailpage.html?song=" + i+ "&artist="+ myData.results[i].artistName+ "\"><button>info</button></a></td>";
+                "<a href=\"detailpage.html?song=" + i+ "&artist="+ myData.results[i].artistName+ "\"><button id='infoButton'>info</button></a></td>";
             tableInfo += "<td><br>Artist Name: " + myData.results[i].artistName+ "<br></td>";
             tableInfo  += "<td>"+"<br>" + "Track Name: "+ myData.results[i].trackName+ "<br>" + "</td>";
             tableInfo  += "<td>"+"<br>" + " Album: "+ myData.results[i].collectionName+ "<br>" + "</td>";
