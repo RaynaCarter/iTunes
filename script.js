@@ -27,9 +27,7 @@ function myCallback(myData) {
     console.log(myData);
     var tableInfo = "";
 
-   // if(resultCount.length==0){
-     //   document.getElementById("songs").innerHTML = " No results found" ;
-   // }else{
+
         for(var i = 0; i < numOfRe; i++){
             if(myData.resultCount==0){
                 document.getElementById("songs").innerHTML = " No results found" ;

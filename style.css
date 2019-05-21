@@ -31,7 +31,6 @@ td {
     border: 1px solid lightgrey;
     border-radius: 100px;
     margin-right: 5% ;
-    align-content: center;
     height:40px;
     width: 200px;
     font-size: 25px;
@@ -51,5 +50,9 @@ td {
     font-style: italic;
 }
 body{
-    background-color: orange;
+    background-color: darkorange;
+}
+#searchboxarea{
+    align-items: center;
+    border-bottom-color: black;
 }
